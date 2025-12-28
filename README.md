@@ -1,113 +1,63 @@
-# Instacart - Grocery-delivery-platform
-Cleaned and analyzed Instacart's 2017 Kaggle dataset to uncover customer purchasing patterns and provide actionable insights into shopping habits.
+## Instacart - Grocery Delivery Platform Analysis
+Analyzed Instacart's grocery delivery platform data to understand customer purchasing patterns, identify peak ordering times, and optimize inventory and delivery operations. Processed multiple datasets to uncover insights about order frequency, product popularity, and user behavior to support business decisions.
 
-# Instacart Data Analysis Project
+## 1. Objectives 🎯
+- Load and preprocess multiple Instacart datasets containing order, product, and user information
+- Identify and handle missing values and duplicate entries across all datasets
+- Verify data integrity and ensure appropriate data types for analysis
+- Analyze customer ordering patterns by day of week and hour of day
+- Examine time intervals between customer orders to understand purchasing frequency
+- Investigate product department and aisle distributions to optimize inventory management
+- Prepare clean, reliable datasets for further business intelligence applications
 
-## 📊 Description
-Complete analysis of purchasing patterns on Instacart, including data cleaning, preprocessing, and trend visualization. This project was developed as part of the Tripleten Data Science program.
+## 2. Key Findings 🏆
+- Identified and removed 15 duplicate orders that occurred specifically on Wednesdays at 2:00 AM
+- Found 1,258 missing product names, all associated with aisle_id 100 and department_id 21
+- Discovered 28,817 missing values in days_since_prior_order, all corresponding to customers' first orders
+- Located 836 missing values in add_to_cart_order, with affected orders containing 65+ products
+- Confirmed order_hour_of_day ranges from 0-23 and order_dow ranges from 0-6, validating data quality
+- Observed peak ordering hours between 10 AM and 8 PM, with the highest activity around 3 PM
+- Determined Wednesday and Thursday are the most popular shopping days
+- Established that missing add_to_cart_order values represent orders exceeding 64 products
 
-## 🎯 Objectives
-1. Load and explore Instacart datasets
-2. Perform data cleaning and preprocessing
-3. Analyze purchasing patterns (timing, days, frequency)
-4. Visualize findings through informative charts
-5. Draw business-relevant conclusions from the data
+## 3. Visualizations Included 🎨
+- Hourly order distribution histogram showing customer ordering patterns throughout the day
+- Daily order frequency analysis by day of week
+- Data type verification visualizations for key columns
+- Missing value heatmaps across all datasets
+- Duplicate record identification displays
 
-## 📈 Key Findings
-1. Temporal Patterns
-Peak hour: 3:00 PM (approximately 120,000 orders)
+## 4. Skills Demonstrated 🛠️
+- Data Integration: Merging and relating multiple datasets (orders, products, aisles, departments)
+- Data Cleaning: Handling missing values, removing duplicates, correcting data types
+- Data Validation: Verifying value ranges and business logic constraints
+- Exploratory Analysis: Identifying patterns in customer behavior and product data
+- Data Quality Assessment: Detecting anomalies and inconsistencies in raw data
+- Problem Solving: Developing strategies to handle various data quality issues
+- Documentation: Creating clear explanations of data preprocessing decisions and findings
 
-- Busiest day: Saturday
-- Least active period: Early morning (2:00-6:00 AM)
-- Most orders occur between 10:00 AM and 4:00 PM
+## 5. Technical Details 💻
+- Programming Language: Python
+- Main Libraries: pandas, matplotlib
+- Datasets: instacart_orders.csv, products.csv, order_products.csv, aisles.csv, departments.csv
+- Data Volume: 478,967 initial orders, 49,694 products, 4,545,007 order items
+- Preprocessing Tasks: Missing value imputation, duplicate removal, data type conversion
+- Key Columns Processed: product_name, days_since_prior_order, add_to_cart_order
+- Special Handling: Used 999 as placeholder for missing add_to_cart_order values
 
-2. User Behavior
-- 6% of orders are first-time purchases
-- Average time between orders is 7-30 days
-- Some users place orders with more than 64 products
-- Wednesday at 2:00 AM showed data quality issues (duplicate entries)
-
-3. Data Quality Issues Identified and Resolved
-- 15 duplicate orders: All occurring on Wednesday at 2:00 AM (removed)
-- 1,258 missing product names: All in aisle 100, department 21 (filled with "unknown")
-- 28,817 missing values in days_since_prior_order: First orders (kept as NaN, valid business case)
-- 836 missing values in add_to_cart_order: Orders with >64 products (filled with 999)
-
-## 📊 Visualizations Included
-1. Order distribution by hour of day (Bar chart)
-2. Order distribution by day of week (Bar chart)
-3. Distribution of time between orders (Histogram)
-
-🛠️ Data Processing Workflow
-Preprocessing Steps
-1. Data Loading: All CSV files loaded with correct semicolon separator
-2. Duplicate Detection & Removal: Identified and removed 15 duplicate orders
-3. Missing Value Treatment:
-- Product names: Imputed with "unknown"
-- add_to_cart_order: Set to 999 for orders with >64 items
-- days_since_prior_order: Kept as NaN for first orders (valid business logic)
-
-4. Data Type Correction: Ensured all ID columns are integers
-
-Exploratory Analysis
-- Validated data ranges (hours: 0-23, days: 0-6)
-- Analyzed purchase frequency patterns
-- Investigated reordering behavior
-- Examined product and department distributions
-
-## 🎓 Skills Demonstrated
-- Data Manipulation: Advanced Pandas operations
-- Data Cleaning: Handling duplicates, missing values, and data type issues
-- Exploratory Data Analysis (EDA): Pattern identification and hypothesis testing
-- Data Visualization: Creating informative charts with Matplotlib
-- Business Insight Extraction: Translating data findings into actionable insights
-- Project Documentation: Clear commenting and documentation of analysis process
-
-## 📝 Technical Details
-Libraries Used
-- Pandas: Data manipulation and analysis
-- Matplotlib: Data visualization
-
-Data Challenges Overcome
-- Non-standard CSV separators (semicolon instead of comma)
-- Mixed data quality across multiple related tables
-- Business-specific missing value patterns
-- Large dataset optimization (4.5+ million rows in order_products)
-
-Performance Optimizations
-- Efficient use of Pandas vectorized operations
-- Appropriate data type selection for memory efficiency
-- Batch processing techniques for large datasets
-
-## 👥 Credits
-
-- Dataset Source: Instacart (modified for educational purposes by Tripleten)
-- Educational Program: Tripleten Data Science Bootcamp
-
-## 📄 License
-This project is for educational purposes as part of the Tripleten Data Science program.
-
-## 🔧 Installation and Usage
-
-### Prerequisites
-- Python 3.8+
-- Jupyter Notebook or JupyterLab
-
-### Installation
+## 6. Installation and Usage
 ```bash
 # Clone the repository
-git clone https://github.com/your-username/instacart-analysis.git
+git clone https://github.com/yourusername/instacart-analysis.git
 
-# Navigate to directory
+# Navigate to project directory
 cd instacart-analysis
 
-# Install dependencies
-pip install -r requirements.txt
+# Install required dependencies
+pip install pandas matplotlib
 
-# Run Jupyter Notebook
-jupyter notebook instacart_analysis.ipynb
-
-
+# Run the analysis notebook
+jupyter notebook Instacart-Grocery_Delivery_Platform.ipynb
 
 
 
